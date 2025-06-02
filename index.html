@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
-            width: 1275px;
-            height: 827px;
+            width: 795px;
+            height: 622px;
         }
         </style>
         <title></title>
@@ -34,14 +34,13 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Zones_merged_addresses_subzone_v2_3.js"></script>
-        <script src="data/Subzone_labels_v2_4.js"></script>
-        <script src="data/mutual_aid_zones_5.js"></script>
-        <script src="data/Joinedlayer_6.js"></script>
+        <script src="data/MutualAidZoneNeighborhoodsSubzones_1.js"></script>
+        <script src="data/Subzone_labels_v2_2.js"></script>
+        <script src="data/MutualAidRegisteredParticipants_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[41.00495466970868,-73.88388174656028],[41.07965952318008,-73.78290967832137]]);
+        }).fitBounds([[41.0063215315058,-73.87612988810032],[41.07829266138295,-73.7906615367813]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -89,22 +88,10 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleSatellite_0');
-        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
-        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatellite_0',
-            opacity: 0.247,
-            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
-            minZoom: 1,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 20
-        });
-        layer_GoogleSatellite_0;
-        map.createPane('pane_GoogleHybrid_1');
-        map.getPane('pane_GoogleHybrid_1').style.zIndex = 401;
-        var layer_GoogleHybrid_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleHybrid_1',
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
             opacity: 0.778,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
@@ -112,22 +99,9 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_GoogleHybrid_1;
-        map.addLayer(layer_GoogleHybrid_1);
-        map.createPane('pane_ESRITransportation_2');
-        map.getPane('pane_ESRITransportation_2').style.zIndex = 402;
-        var layer_ESRITransportation_2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_ESRITransportation_2',
-            opacity: 0.7,
-            attribution: '',
-            minZoom: 1,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 20
-        });
-        layer_ESRITransportation_2;
-        map.addLayer(layer_ESRITransportation_2);
-        function pop_Zones_merged_addresses_subzone_v2_3(feature, layer) {
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        function pop_MutualAidZoneNeighborhoodsSubzones_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">SUBZONE</th>\
@@ -141,11 +115,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Zones_merged_addresses_subzone_v2_3_0(feature) {
+        function style_MutualAidZoneNeighborhoodsSubzones_1_0(feature) {
             switch(String(feature.properties['SUBZONE'])) {
                 case 'ZONE 01A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -160,7 +134,7 @@
                     break;
                 case 'ZONE 02A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -175,7 +149,7 @@
                     break;
                 case 'ZONE 03A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -190,7 +164,7 @@
                     break;
                 case 'ZONE 03B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -205,7 +179,7 @@
                     break;
                 case 'ZONE 03C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -220,7 +194,7 @@
                     break;
                 case 'ZONE 03D':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -235,7 +209,7 @@
                     break;
                 case 'ZONE 04A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -250,7 +224,7 @@
                     break;
                 case 'ZONE 04B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -265,7 +239,7 @@
                     break;
                 case 'ZONE 04C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -280,7 +254,7 @@
                     break;
                 case 'ZONE 04D':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -295,7 +269,7 @@
                     break;
                 case 'ZONE 04E':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -310,7 +284,7 @@
                     break;
                 case 'ZONE 04F':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -325,7 +299,7 @@
                     break;
                 case 'ZONE 05A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -340,7 +314,7 @@
                     break;
                 case 'ZONE 05B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -355,7 +329,7 @@
                     break;
                 case 'ZONE 06A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -370,7 +344,7 @@
                     break;
                 case 'ZONE 06B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -385,7 +359,7 @@
                     break;
                 case 'ZONE 07A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -400,7 +374,7 @@
                     break;
                 case 'ZONE 08A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -415,7 +389,7 @@
                     break;
                 case 'ZONE 08B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -430,7 +404,7 @@
                     break;
                 case 'ZONE 08C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -445,7 +419,7 @@
                     break;
                 case 'ZONE 08D':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -460,7 +434,7 @@
                     break;
                 case 'ZONE 09A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -475,7 +449,7 @@
                     break;
                 case 'ZONE 09B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -490,7 +464,7 @@
                     break;
                 case 'ZONE 09C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -505,7 +479,7 @@
                     break;
                 case 'ZONE 10A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -520,7 +494,7 @@
                     break;
                 case 'ZONE 10B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -535,7 +509,7 @@
                     break;
                 case 'ZONE 10C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -550,7 +524,7 @@
                     break;
                 case 'ZONE 11A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -565,7 +539,7 @@
                     break;
                 case 'ZONE 11B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -580,7 +554,7 @@
                     break;
                 case 'ZONE 12A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -595,7 +569,7 @@
                     break;
                 case 'ZONE 13A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -610,7 +584,7 @@
                     break;
                 case 'ZONE 13B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -625,7 +599,7 @@
                     break;
                 case 'ZONE 13C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -640,7 +614,7 @@
                     break;
                 case 'ZONE 14A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -655,7 +629,7 @@
                     break;
                 case 'ZONE 15A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -670,7 +644,7 @@
                     break;
                 case 'ZONE 16A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -685,7 +659,7 @@
                     break;
                 case 'ZONE 17A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -700,7 +674,7 @@
                     break;
                 case 'ZONE 17B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -715,7 +689,7 @@
                     break;
                 case 'ZONE 18A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -730,7 +704,7 @@
                     break;
                 case 'ZONE 19A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -745,7 +719,7 @@
                     break;
                 case 'ZONE 20A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -760,7 +734,7 @@
                     break;
                 case 'ZONE 20C':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -775,7 +749,7 @@
                     break;
                 case 'ZONE 20D':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -790,7 +764,7 @@
                     break;
                 case 'ZONE 21A':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -805,7 +779,7 @@
                     break;
                 case 'ZONE 21B':
                     return {
-                pane: 'pane_Zones_merged_addresses_subzone_v2_3',
+                pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.382)',
                 dashArray: '',
@@ -820,31 +794,24 @@
                     break;
             }
         }
-        map.createPane('pane_Zones_merged_addresses_subzone_v2_3');
-        map.getPane('pane_Zones_merged_addresses_subzone_v2_3').style.zIndex = 403;
-        map.getPane('pane_Zones_merged_addresses_subzone_v2_3').style['mix-blend-mode'] = 'normal';
-        var layer_Zones_merged_addresses_subzone_v2_3 = new L.geoJson(json_Zones_merged_addresses_subzone_v2_3, {
+        map.createPane('pane_MutualAidZoneNeighborhoodsSubzones_1');
+        map.getPane('pane_MutualAidZoneNeighborhoodsSubzones_1').style.zIndex = 401;
+        map.getPane('pane_MutualAidZoneNeighborhoodsSubzones_1').style['mix-blend-mode'] = 'normal';
+        var layer_MutualAidZoneNeighborhoodsSubzones_1 = new L.geoJson(json_MutualAidZoneNeighborhoodsSubzones_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Zones_merged_addresses_subzone_v2_3',
-            layerName: 'layer_Zones_merged_addresses_subzone_v2_3',
-            pane: 'pane_Zones_merged_addresses_subzone_v2_3',
-            onEachFeature: pop_Zones_merged_addresses_subzone_v2_3,
-            style: style_Zones_merged_addresses_subzone_v2_3_0,
+            dataVar: 'json_MutualAidZoneNeighborhoodsSubzones_1',
+            layerName: 'layer_MutualAidZoneNeighborhoodsSubzones_1',
+            pane: 'pane_MutualAidZoneNeighborhoodsSubzones_1',
+            onEachFeature: pop_MutualAidZoneNeighborhoodsSubzones_1,
+            style: style_MutualAidZoneNeighborhoodsSubzones_1_0,
         });
-        bounds_group.addLayer(layer_Zones_merged_addresses_subzone_v2_3);
-        map.addLayer(layer_Zones_merged_addresses_subzone_v2_3);
-        function pop_Subzone_labels_v2_4(feature, layer) {
+        bounds_group.addLayer(layer_MutualAidZoneNeighborhoodsSubzones_1);
+        map.addLayer(layer_MutualAidZoneNeighborhoodsSubzones_1);
+        function pop_Subzone_labels_v2_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ZONE NAME'] !== null ? autolinker.link(String(feature.properties['ZONE NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">SUBZONE</th>\
-                        <td>' + (feature.properties['SUBZONE'] !== null ? autolinker.link(String(feature.properties['SUBZONE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['SUBZONE'] !== null ? autolinker.link(String(feature.properties['SUBZONE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -854,9 +821,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Subzone_labels_v2_4_0() {
+        function style_Subzone_labels_v2_2_0() {
             return {
-                pane: 'pane_Subzone_labels_v2_4',
+                pane: 'pane_Subzone_labels_v2_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -867,24 +834,24 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Subzone_labels_v2_4');
-        map.getPane('pane_Subzone_labels_v2_4').style.zIndex = 404;
-        map.getPane('pane_Subzone_labels_v2_4').style['mix-blend-mode'] = 'normal';
-        var layer_Subzone_labels_v2_4 = new L.geoJson(json_Subzone_labels_v2_4, {
+        map.createPane('pane_Subzone_labels_v2_2');
+        map.getPane('pane_Subzone_labels_v2_2').style.zIndex = 402;
+        map.getPane('pane_Subzone_labels_v2_2').style['mix-blend-mode'] = 'normal';
+        var layer_Subzone_labels_v2_2 = new L.geoJson(json_Subzone_labels_v2_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Subzone_labels_v2_4',
-            layerName: 'layer_Subzone_labels_v2_4',
-            pane: 'pane_Subzone_labels_v2_4',
-            onEachFeature: pop_Subzone_labels_v2_4,
-            style: style_Subzone_labels_v2_4_0,
+            dataVar: 'json_Subzone_labels_v2_2',
+            layerName: 'layer_Subzone_labels_v2_2',
+            pane: 'pane_Subzone_labels_v2_2',
+            onEachFeature: pop_Subzone_labels_v2_2,
+            style: style_Subzone_labels_v2_2_0,
         });
-        bounds_group.addLayer(layer_Subzone_labels_v2_4);
-        map.addLayer(layer_Subzone_labels_v2_4);
-        function pop_mutual_aid_zones_5(feature, layer) {
+        bounds_group.addLayer(layer_Subzone_labels_v2_2);
+        map.addLayer(layer_Subzone_labels_v2_2);
+        function pop_MutualAidRegisteredParticipants_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ZONE_NAME'] !== null ? autolinker.link(String(feature.properties['ZONE_NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Comms Chan'] !== null ? autolinker.link(String(feature.properties['Comms Chan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -894,106 +861,63 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_mutual_aid_zones_5_0() {
+        function style_MutualAidRegisteredParticipants_3_0() {
             return {
-                pane: 'pane_mutual_aid_zones_5',
-                opacity: 1,
-                color: 'rgba(255,122,55,1.0)',
-                dashArray: '10.0,2.0',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0, 
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_mutual_aid_zones_5');
-        map.getPane('pane_mutual_aid_zones_5').style.zIndex = 405;
-        map.getPane('pane_mutual_aid_zones_5').style['mix-blend-mode'] = 'normal';
-        var layer_mutual_aid_zones_5 = new L.geoJson(json_mutual_aid_zones_5, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_mutual_aid_zones_5',
-            layerName: 'layer_mutual_aid_zones_5',
-            pane: 'pane_mutual_aid_zones_5',
-            onEachFeature: pop_mutual_aid_zones_5,
-            style: style_mutual_aid_zones_5_0,
-        });
-        bounds_group.addLayer(layer_mutual_aid_zones_5);
-        function pop_Joinedlayer_6(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Comms Chan</th>\
-                        <td>' + (feature.properties['Comms Chan'] !== null ? autolinker.link(String(feature.properties['Comms Chan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Joinedlayer_6_0() {
-            return {
-                pane: 'pane_Joinedlayer_6',
+                pane: 'pane_MutualAidRegisteredParticipants_3',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Joinedlayer_6.svg',
+            iconUrl: 'markers/MutualAidRegisteredParticipants_3.svg',
             iconSize: [22.799999999999997, 22.799999999999997]
         }),
                 interactive: true,
             }
         }
-        function style_Joinedlayer_6_1() {
+        function style_MutualAidRegisteredParticipants_3_1() {
             return {
-                pane: 'pane_Joinedlayer_6',
+                pane: 'pane_MutualAidRegisteredParticipants_3',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Joinedlayer_6.svg',
+            iconUrl: 'markers/MutualAidRegisteredParticipants_3.svg',
             iconSize: [15.2, 15.2]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Joinedlayer_6');
-        map.getPane('pane_Joinedlayer_6').style.zIndex = 406;
-        map.getPane('pane_Joinedlayer_6').style['mix-blend-mode'] = 'normal';
-        var layer_Joinedlayer_6 = new L.geoJson.multiStyle(json_Joinedlayer_6, {
+        map.createPane('pane_MutualAidRegisteredParticipants_3');
+        map.getPane('pane_MutualAidRegisteredParticipants_3').style.zIndex = 403;
+        map.getPane('pane_MutualAidRegisteredParticipants_3').style['mix-blend-mode'] = 'normal';
+        var layer_MutualAidRegisteredParticipants_3 = new L.geoJson.multiStyle(json_MutualAidRegisteredParticipants_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Joinedlayer_6',
-            layerName: 'layer_Joinedlayer_6',
-            pane: 'pane_Joinedlayer_6',
-            onEachFeature: pop_Joinedlayer_6,
+            dataVar: 'json_MutualAidRegisteredParticipants_3',
+            layerName: 'layer_MutualAidRegisteredParticipants_3',
+            pane: 'pane_MutualAidRegisteredParticipants_3',
+            onEachFeature: pop_MutualAidRegisteredParticipants_3,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Joinedlayer_6_0(feature));
+                return L.marker(latlng, style_MutualAidRegisteredParticipants_3_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Joinedlayer_6_1(feature));
+                return L.marker(latlng, style_MutualAidRegisteredParticipants_3_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_Joinedlayer_6);
-        map.addLayer(layer_Joinedlayer_6);
+        bounds_group.addLayer(layer_MutualAidRegisteredParticipants_3);
+        map.addLayer(layer_MutualAidRegisteredParticipants_3);
         var overlaysTree = [
         {label: '<b>Irvington ZONES</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Joinedlayer_6.png" /> Joined layer', layer: layer_Joinedlayer_6},
-            {label: '<img src="legend/mutual_aid_zones_5.png" /> mutual_aid_zones', layer: layer_mutual_aid_zones_5},]},
+            {label: '<img src="legend/MutualAidRegisteredParticipants_3.png" /> Mutual Aid Registered Participants', layer: layer_MutualAidRegisteredParticipants_3},]},
         {label: '<b>V2 Subzones</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Subzone_labels_v2_4.png" /> Subzone_labels_v2', layer: layer_Subzone_labels_v2_4},
-            {label: 'Zones_merged_addresses_subzone_v2<br /><table><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE01A0.png" /></td><td>ZONE 01A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE02A1.png" /></td><td>ZONE 02A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE03A2.png" /></td><td>ZONE 03A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE03B3.png" /></td><td>ZONE 03B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE03C4.png" /></td><td>ZONE 03C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE03D5.png" /></td><td>ZONE 03D</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04A6.png" /></td><td>ZONE 04A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04B7.png" /></td><td>ZONE 04B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04C8.png" /></td><td>ZONE 04C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04D9.png" /></td><td>ZONE 04D</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04E10.png" /></td><td>ZONE 04E</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE04F11.png" /></td><td>ZONE 04F</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE05A12.png" /></td><td>ZONE 05A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE05B13.png" /></td><td>ZONE 05B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE06A14.png" /></td><td>ZONE 06A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE06B15.png" /></td><td>ZONE 06B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE07A16.png" /></td><td>ZONE 07A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE08A17.png" /></td><td>ZONE 08A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE08B18.png" /></td><td>ZONE 08B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE08C19.png" /></td><td>ZONE 08C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE08D20.png" /></td><td>ZONE 08D</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE09A21.png" /></td><td>ZONE 09A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE09B22.png" /></td><td>ZONE 09B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE09C23.png" /></td><td>ZONE 09C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE10A24.png" /></td><td>ZONE 10A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE10B25.png" /></td><td>ZONE 10B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE10C26.png" /></td><td>ZONE 10C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE11A27.png" /></td><td>ZONE 11A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE11B28.png" /></td><td>ZONE 11B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE12A29.png" /></td><td>ZONE 12A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE13A30.png" /></td><td>ZONE 13A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE13B31.png" /></td><td>ZONE 13B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE13C32.png" /></td><td>ZONE 13C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE14A33.png" /></td><td>ZONE 14A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE15A34.png" /></td><td>ZONE 15A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE16A35.png" /></td><td>ZONE 16A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE17A36.png" /></td><td>ZONE 17A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE17B37.png" /></td><td>ZONE 17B</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE18A38.png" /></td><td>ZONE 18A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE19A39.png" /></td><td>ZONE 19A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE20A40.png" /></td><td>ZONE 20A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE20C41.png" /></td><td>ZONE 20C</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE20D42.png" /></td><td>ZONE 20D</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE21A43.png" /></td><td>ZONE 21A</td></tr><tr><td style="text-align: center;"><img src="legend/Zones_merged_addresses_subzone_v2_3_ZONE21B44.png" /></td><td>ZONE 21B</td></tr></table>', layer: layer_Zones_merged_addresses_subzone_v2_3},]},
-            {label: "ESRI Transportation", layer: layer_ESRITransportation_2},
-            {label: "Google Hybrid", layer: layer_GoogleHybrid_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
+            {label: '<img src="legend/Subzone_labels_v2_2.png" /> Subzone_labels_v2', layer: layer_Subzone_labels_v2_2},
+            {label: 'Mutual Aid Zone Neighborhoods (Subzones)<br /><table><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE01A0.png" /></td><td>ZONE 01A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE02A1.png" /></td><td>ZONE 02A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE03A2.png" /></td><td>ZONE 03A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE03B3.png" /></td><td>ZONE 03B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE03C4.png" /></td><td>ZONE 03C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE03D5.png" /></td><td>ZONE 03D</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04A6.png" /></td><td>ZONE 04A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04B7.png" /></td><td>ZONE 04B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04C8.png" /></td><td>ZONE 04C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04D9.png" /></td><td>ZONE 04D</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04E10.png" /></td><td>ZONE 04E</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE04F11.png" /></td><td>ZONE 04F</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE05A12.png" /></td><td>ZONE 05A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE05B13.png" /></td><td>ZONE 05B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE06A14.png" /></td><td>ZONE 06A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE06B15.png" /></td><td>ZONE 06B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE07A16.png" /></td><td>ZONE 07A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE08A17.png" /></td><td>ZONE 08A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE08B18.png" /></td><td>ZONE 08B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE08C19.png" /></td><td>ZONE 08C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE08D20.png" /></td><td>ZONE 08D</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE09A21.png" /></td><td>ZONE 09A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE09B22.png" /></td><td>ZONE 09B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE09C23.png" /></td><td>ZONE 09C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE10A24.png" /></td><td>ZONE 10A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE10B25.png" /></td><td>ZONE 10B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE10C26.png" /></td><td>ZONE 10C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE11A27.png" /></td><td>ZONE 11A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE11B28.png" /></td><td>ZONE 11B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE12A29.png" /></td><td>ZONE 12A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE13A30.png" /></td><td>ZONE 13A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE13B31.png" /></td><td>ZONE 13B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE13C32.png" /></td><td>ZONE 13C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE14A33.png" /></td><td>ZONE 14A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE15A34.png" /></td><td>ZONE 15A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE16A35.png" /></td><td>ZONE 16A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE17A36.png" /></td><td>ZONE 17A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE17B37.png" /></td><td>ZONE 17B</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE18A38.png" /></td><td>ZONE 18A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE19A39.png" /></td><td>ZONE 19A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE20A40.png" /></td><td>ZONE 20A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE20C41.png" /></td><td>ZONE 20C</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE20D42.png" /></td><td>ZONE 20D</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE21A43.png" /></td><td>ZONE 21A</td></tr><tr><td style="text-align: center;"><img src="legend/MutualAidZoneNeighborhoodsSubzones_1_ZONE21B44.png" /></td><td>ZONE 21B</td></tr></table>', layer: layer_MutualAidZoneNeighborhoodsSubzones_1},]},
+            {label: "Google Hybrid", layer: layer_GoogleHybrid_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1055,28 +979,15 @@
             }  
         });       
         setBounds();
-        var i = 0;
-        layer_mutual_aid_zones_5.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['ZONE_NAME'] !== null?String('<div style="color: #ff7a37; font-size: 16pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['ZONE_NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_mutual_aid_zones_5'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_mutual_aid_zones_5,layer_Joinedlayer_6]);
+        resetLabels([layer_MutualAidRegisteredParticipants_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_mutual_aid_zones_5,layer_Joinedlayer_6]);
+            resetLabels([layer_MutualAidRegisteredParticipants_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_mutual_aid_zones_5,layer_Joinedlayer_6]);
+            resetLabels([layer_MutualAidRegisteredParticipants_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_mutual_aid_zones_5,layer_Joinedlayer_6]);
+            resetLabels([layer_MutualAidRegisteredParticipants_3]);
         });
         </script>
     </body>
